@@ -1,0 +1,13 @@
+l i b r a r y IEEE;
+us e IEEE.STD_LOGIC_1164.ALL;
+us e IEEE.NUMERIC_STD.ALL;
+e n t i t y firstname_lastname_sequence_detector i s
+Port ( seq : i n s t d_l o g i c ;
+enable : i n s t d_l o g i c ;
+reset : i n s t d_l o g i c ;
+clk : i n s t d_l o g i c ;
+cnt_1 : out s t d_l o g i c_v e c t o r (2 downto 0); -- counts the occurrence of the pattern
+"1011".
+cnt_2 : out s t d_l o g i c_v e c t o r (2 downto 0)); -- counts the occurrence of the pattern
+"0010".
+end firstname_lastname_sequence_detector ;

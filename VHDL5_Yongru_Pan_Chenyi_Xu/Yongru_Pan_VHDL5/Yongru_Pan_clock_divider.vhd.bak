@@ -1,0 +1,9 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+entity firstname_lastname_clock_divider is
+Port ( enable : in std_logic;
+reset : in std_logic;
+clk : i n s t d_l o g i c ;
+en_out : out s t d_l o g i c );
+end firstname_lastname_clock_divider ;

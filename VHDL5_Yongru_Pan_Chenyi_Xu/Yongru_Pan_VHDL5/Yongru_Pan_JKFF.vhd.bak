@@ -1,0 +1,17 @@
+PROCESS ( clk )
+BEGIN
+IF RISING_EDGE( clock ) THEN
+Q <= D;
+END IF;
+END PROCESS;
+
+PROCESS ( clk, reset, set )
+BEGIN
+IF reset = ’0’ THEN
+Q <= ’0’;
+ELSIF set = ’0’ THEN
+Q <= ’1’;
+ELSIF RISING_EDGE( clk ) THEN
+Q <= D;
+END IF;
+END PROCESS;

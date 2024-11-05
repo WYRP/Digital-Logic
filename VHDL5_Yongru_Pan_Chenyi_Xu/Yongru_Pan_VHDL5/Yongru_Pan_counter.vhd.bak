@@ -1,0 +1,9 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+entity Yongru_Pan_counter is
+Port ( enable : in std_logic;
+reset : in std_logic;
+clk : in std_logic;
+count : out st d_l o g i c_v e c t o r (2 downto 0));
+end Yongru_Pan_counter ;

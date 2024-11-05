@@ -1,0 +1,14 @@
+vendor_name = ModelSim
+source_file = 1, C:/intelFPGA_lite/18.0/Yongru_Pan_MUX_structural/behavioral/Yongru_Pan_MUX_behavioral.vhd
+source_file = 1, c:/intelfpga_lite/18.0/quartus/libraries/vhdl/ieee/prmtvs_b.vhd
+source_file = 1, c:/intelfpga_lite/18.0/quartus/libraries/vhdl/ieee/prmtvs_p.vhd
+source_file = 1, c:/intelfpga_lite/18.0/quartus/libraries/vhdl/ieee/timing_b.vhd
+source_file = 1, c:/intelfpga_lite/18.0/quartus/libraries/vhdl/ieee/timing_p.vhd
+source_file = 1, C:/intelFPGA_lite/18.0/Yongru_Pan_MUX_structural/db/Yongru_Pan_MUX_structural.cbx.xml
+design_name = Yongru_Pan_MUX_Behavioral
+instance = comp, \Y~output\, Y~output, Yongru_Pan_MUX_Behavioral, 1
+instance = comp, \B~input\, B~input, Yongru_Pan_MUX_Behavioral, 1
+instance = comp, \S~input\, S~input, Yongru_Pan_MUX_Behavioral, 1
+instance = comp, \A~input\, A~input, Yongru_Pan_MUX_Behavioral, 1
+instance = comp, \Y~0\, Y~0, Yongru_Pan_MUX_Behavioral, 1
+instance = comp, \~QUARTUS_CREATED_GND~I\, ~QUARTUS_CREATED_GND~I, Yongru_Pan_MUX_Behavioral, 1

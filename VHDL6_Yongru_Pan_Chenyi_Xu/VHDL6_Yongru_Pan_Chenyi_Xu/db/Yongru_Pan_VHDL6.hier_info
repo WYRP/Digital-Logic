@@ -1,0 +1,213 @@
+|Yongru_Pan_wrapper
+reset => Yongru_Pan_clock_divider:stage0.reset
+reset => ROM:stage1.reset
+reset => Yongru_Pan_sequence_detector:stage2.reset
+clk => Yongru_Pan_clock_divider:stage0.clk
+HEX0[0] <= seven_segment_decoder:stage3.segments_out[0]
+HEX0[1] <= seven_segment_decoder:stage3.segments_out[1]
+HEX0[2] <= seven_segment_decoder:stage3.segments_out[2]
+HEX0[3] <= seven_segment_decoder:stage3.segments_out[3]
+HEX0[4] <= seven_segment_decoder:stage3.segments_out[4]
+HEX0[5] <= seven_segment_decoder:stage3.segments_out[5]
+HEX0[6] <= seven_segment_decoder:stage3.segments_out[6]
+HEX5[0] <= seven_segment_decoder:stage4.segments_out[0]
+HEX5[1] <= seven_segment_decoder:stage4.segments_out[1]
+HEX5[2] <= seven_segment_decoder:stage4.segments_out[2]
+HEX5[3] <= seven_segment_decoder:stage4.segments_out[3]
+HEX5[4] <= seven_segment_decoder:stage4.segments_out[4]
+HEX5[5] <= seven_segment_decoder:stage4.segments_out[5]
+HEX5[6] <= seven_segment_decoder:stage4.segments_out[6]
+
+
+|Yongru_Pan_wrapper|Yongru_Pan_clock_divider:stage0
+enable => tmp.OUTPUTSELECT
+enable => tmp.OUTPUTSELECT
+enable => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+clk => en_out~reg0.CLK
+clk => tmp[0].CLK
+clk => tmp[1].CLK
+clk => tmp[2].CLK
+en_out <= en_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Yongru_Pan_wrapper|ROM:stage1
+clk => cnt[0].CLK
+clk => cnt[1].CLK
+clk => cnt[2].CLK
+clk => cnt[3].CLK
+clk => cnt[4].CLK
+clk => cnt[5].CLK
+clk => cnt[6].CLK
+clk => cnt[7].CLK
+reset => cnt[0].ACLR
+reset => cnt[1].ACLR
+reset => cnt[2].ACLR
+reset => cnt[3].ACLR
+reset => cnt[4].ACLR
+reset => cnt[5].ACLR
+reset => cnt[6].ACLR
+reset => cnt[7].ACLR
+data <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Yongru_Pan_wrapper|Yongru_Pan_sequence_detector:stage2
+seq => Chenyi_Xu_FSM:stage0.seq
+enable => Chenyi_Xu_FSM:stage0.enable
+reset => Chenyi_Xu_FSM:stage0.reset
+reset => Yongru_Pan_counter:stage1.reset
+reset => Yongru_Pan_counter:stage2.reset
+clk => Chenyi_Xu_FSM:stage0.clk
+clk => Yongru_Pan_counter:stage1.clk
+clk => Yongru_Pan_counter:stage2.clk
+cnt_1[0] <= Yongru_Pan_counter:stage1.count[0]
+cnt_1[1] <= Yongru_Pan_counter:stage1.count[1]
+cnt_1[2] <= Yongru_Pan_counter:stage1.count[2]
+cnt_2[0] <= Yongru_Pan_counter:stage2.count[0]
+cnt_2[1] <= Yongru_Pan_counter:stage2.count[1]
+cnt_2[2] <= Yongru_Pan_counter:stage2.count[2]
+
+
+|Yongru_Pan_wrapper|Yongru_Pan_sequence_detector:stage2|Chenyi_Xu_FSM:stage0
+seq => next_state.One.DATAA
+seq => next_state.OneZeroOne.DATAB
+seq => next_state.OneZeroOneOne.DATAB
+seq => next_state2.One2.DATAA
+seq => next_state2.ZeroZeroOne.DATAB
+seq => Selector0.IN1
+seq => Selector1.IN1
+seq => next_state2.Zero2.DATAB
+seq => Selector2.IN1
+seq => next_state2.ZeroZeroOneZero.DATAB
+enable => current_state.OUTPUTSELECT
+enable => current_state.OUTPUTSELECT
+enable => current_state.OUTPUTSELECT
+enable => current_state.OUTPUTSELECT
+enable => current_state.OUTPUTSELECT
+enable => current_state2.OUTPUTSELECT
+enable => current_state2.OUTPUTSELECT
+enable => current_state2.OUTPUTSELECT
+enable => current_state2.OUTPUTSELECT
+enable => current_state2.OUTPUTSELECT
+reset => current_state2~8.DATAIN
+reset => current_state~8.DATAIN
+clk => current_state2~6.DATAIN
+clk => current_state~6.DATAIN
+out_1 <= out_1.DB_MAX_OUTPUT_PORT_TYPE
+out_2 <= out_2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Yongru_Pan_wrapper|Yongru_Pan_sequence_detector:stage2|Yongru_Pan_counter:stage1
+enable => tmp.OUTPUTSELECT
+enable => tmp.OUTPUTSELECT
+enable => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+clk => count[0]~reg0.CLK
+clk => count[1]~reg0.CLK
+clk => count[2]~reg0.CLK
+clk => tmp[0].CLK
+clk => tmp[1].CLK
+clk => tmp[2].CLK
+count[0] <= count[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[1] <= count[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[2] <= count[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Yongru_Pan_wrapper|Yongru_Pan_sequence_detector:stage2|Yongru_Pan_counter:stage2
+enable => tmp.OUTPUTSELECT
+enable => tmp.OUTPUTSELECT
+enable => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+clk => count[0]~reg0.CLK
+clk => count[1]~reg0.CLK
+clk => count[2]~reg0.CLK
+clk => tmp[0].CLK
+clk => tmp[1].CLK
+clk => tmp[2].CLK
+count[0] <= count[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[1] <= count[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[2] <= count[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Yongru_Pan_wrapper|seven_segment_decoder:stage3
+code[0] => Mux0.IN19
+code[0] => Mux1.IN19
+code[0] => Mux2.IN19
+code[0] => Mux3.IN19
+code[0] => Mux4.IN19
+code[0] => Mux5.IN19
+code[0] => Mux6.IN19
+code[1] => Mux0.IN18
+code[1] => Mux1.IN18
+code[1] => Mux2.IN18
+code[1] => Mux3.IN18
+code[1] => Mux4.IN18
+code[1] => Mux5.IN18
+code[1] => Mux6.IN18
+code[2] => Mux0.IN17
+code[2] => Mux1.IN17
+code[2] => Mux2.IN17
+code[2] => Mux3.IN17
+code[2] => Mux4.IN17
+code[2] => Mux5.IN17
+code[2] => Mux6.IN17
+code[3] => Mux0.IN16
+code[3] => Mux1.IN16
+code[3] => Mux2.IN16
+code[3] => Mux3.IN16
+code[3] => Mux4.IN16
+code[3] => Mux5.IN16
+code[3] => Mux6.IN16
+segments_out[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Yongru_Pan_wrapper|seven_segment_decoder:stage4
+code[0] => Mux0.IN19
+code[0] => Mux1.IN19
+code[0] => Mux2.IN19
+code[0] => Mux3.IN19
+code[0] => Mux4.IN19
+code[0] => Mux5.IN19
+code[0] => Mux6.IN19
+code[1] => Mux0.IN18
+code[1] => Mux1.IN18
+code[1] => Mux2.IN18
+code[1] => Mux3.IN18
+code[1] => Mux4.IN18
+code[1] => Mux5.IN18
+code[1] => Mux6.IN18
+code[2] => Mux0.IN17
+code[2] => Mux1.IN17
+code[2] => Mux2.IN17
+code[2] => Mux3.IN17
+code[2] => Mux4.IN17
+code[2] => Mux5.IN17
+code[2] => Mux6.IN17
+code[3] => Mux0.IN16
+code[3] => Mux1.IN16
+code[3] => Mux2.IN16
+code[3] => Mux3.IN16
+code[3] => Mux4.IN16
+code[3] => Mux5.IN16
+code[3] => Mux6.IN16
+segments_out[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+

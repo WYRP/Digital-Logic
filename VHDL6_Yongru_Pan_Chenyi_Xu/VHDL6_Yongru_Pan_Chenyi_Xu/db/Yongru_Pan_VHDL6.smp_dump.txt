@@ -1,0 +1,16 @@
+
+State Machine - |Yongru_Pan_wrapper|Yongru_Pan_sequence_detector:stage2|Chenyi_Xu_FSM:stage0|current_state2
+Name current_state2.ZeroZeroOneZero current_state2.ZeroZeroOne current_state2.ZeroZero current_state2.One2 current_state2.Zero2 
+current_state2.Zero2 0 0 0 0 0 
+current_state2.One2 0 0 0 1 1 
+current_state2.ZeroZero 0 0 1 0 1 
+current_state2.ZeroZeroOne 0 1 0 0 1 
+current_state2.ZeroZeroOneZero 1 0 0 0 1 
+
+State Machine - |Yongru_Pan_wrapper|Yongru_Pan_sequence_detector:stage2|Chenyi_Xu_FSM:stage0|current_state
+Name current_state.OneZeroOneOne current_state.OneZeroOne current_state.OneZero current_state.One current_state.Zero 
+current_state.Zero 0 0 0 0 0 
+current_state.One 0 0 0 1 1 
+current_state.OneZero 0 0 1 0 1 
+current_state.OneZeroOne 0 1 0 0 1 
+current_state.OneZeroOneOne 1 0 0 0 1 

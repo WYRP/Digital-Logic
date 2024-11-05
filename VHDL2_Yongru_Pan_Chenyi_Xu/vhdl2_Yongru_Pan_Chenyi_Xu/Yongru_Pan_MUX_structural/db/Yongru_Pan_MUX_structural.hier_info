@@ -1,0 +1,7 @@
+|Yongru_Pan_MUX_behavioral
+S => Y.OUTPUTSELECT
+A => Y.DATAB
+B => Y.DATAA
+Y << Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
